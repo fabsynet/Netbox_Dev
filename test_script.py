@@ -31,10 +31,15 @@ class AddDevices(Script):
         description = "Provision a New switch to Site"
         commit_default = False
         fieldsets = (
-            ('Device Object', ('device_name'))
+            ('Device Object', ('device_name','switch_model'))
         )
     
     device_name = StringVar(
         description="Device hostname",
         label='Device Name'
+    )
+        switch_model = ObjectVar(
+        description="Access switch model",
+        model=DeviceType,
+        label='Device Model'
     )
