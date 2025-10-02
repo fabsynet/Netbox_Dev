@@ -256,7 +256,7 @@ class DeviceOnboarding(Script):
             platform=platform,
             config_template=ConfigTemplate.objects.get(name='master_template_v1'),
         )
-        switch.custom_field_data["gateway"] = data["gateway_address"]
+        switch.custom_field_data["Device gateway"] = data["gateway_address"]
         switch.full_clean()
         switch.save()
         switch.refresh_from_db()
