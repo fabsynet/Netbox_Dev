@@ -38,8 +38,8 @@ class AddDevices(Script):
         description="Device hostname",
         label='Device Name'
     )
-        switch_model = ObjectVar(
-        description="Access switch model",
-        model=DeviceType,
-        label='Device Model'
+    switch_model = ObjectVar(
+    description="Access switch model",
+    model=DeviceType,
+    label='Device Model'
     )
