@@ -66,7 +66,6 @@ class DeviceOnboarding(Script):
             ('Wired Guest', ('guest_count',)),
             ('Uplink Port 1', ('uplink_1', 'uplink_desc_a',)),
             ('Uplink Port 2', ('uplink_2', 'uplink_desc_b',)),
-            ('Lag Interface', ('lag_name', 'lag_desc')),
         )
     
     device_name = StringVar(
@@ -149,17 +148,5 @@ class DeviceOnboarding(Script):
         label='Uplink Interface Description',
         default='remotehost=os-z07-41ra0043-01-sw-lef-b; port=xe-0/0/18'
     )
-    lag_name  = ChoiceVar(
-        choices=LAG_CHOICES,
-        description="Uplink Port 1/2 Lag Interface drop-down. example: Po1/ae1",
-        label='Lag Interface Name',
-        default='Po1',
-    )
-    lag_desc = StringVar(
-        description="Uplink Port 1/2 Lag Interface description",
-        label='Lag Interface Description',
-        default='remotehost=os-z07-41ra0043-01-sw-lef-a/b; port=ae18'
-    )
-
 
        
