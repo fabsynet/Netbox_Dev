@@ -53,12 +53,17 @@ choices4 = (
     ('GigabitEthernet1/4', 'Gi1/4'),
 )
 
+
 class DeviceOnboarding(Script):
 
     class Meta:
         name = "Device Onboarding"
         description = "Provision a New switch to Site"
         commit_default = False
+        fieldsets = (
+            ('Device Object', ('device_name', 'switch_model', 'mgmt_address', 'gateway_address', 'is_stack_switch')),
+        )
+
     
     device_name = StringVar(
         description="Device hostname",
