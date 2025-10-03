@@ -60,12 +60,7 @@ class DeviceOnboarding(Script):
         description = "Provision a New switch to Site"
         commit_default = False
         fieldsets = (
-            ('Device Object', ('device_name', 'switch_model', 'mgmt_address', 'gateway_address', 'is_stack_switch')),
-            ('Site Object', ('site', 'mgmt_vlan', 'blan_vlan', 'guest_vlan')),
-            ('Connected Access Point', ('ap_count',)),
-            ('Wired Guest', ('guest_count',)),
-            ('Uplink Port 1', ('uplink_1', 'uplink_desc_a',)),
-            ('Uplink Port 2', ('uplink_2', 'uplink_desc_b',)),
+            ('Device Object', ('device_name', 'switch_model', 'mgmt_address', 'gateway_address', 'is_stack_switch'))
         )
     
     device_name = StringVar(
@@ -95,58 +90,4 @@ class DeviceOnboarding(Script):
         default=False,
         label='is_stack',
     )
-    mgmt_vlan = IntegerVar(
-        description="Mgmt VLAN ID example: 60",
-        label='Mgmt VLAN ID',
-        default=60,
-        min_value=2,
-        max_value=4096,
-    )
-    blan_vlan = IntegerVar(
-        description="Business LAN VLAN ID example: 1101",
-        label='BLAN VLAN ID',
-        min_value=2,
-        max_value=4096,
-    )
-    guest_vlan = IntegerVar(
-        description="Guest VLAN ID example: 3101",
-        label='Guest VLAN ID',
-        min_value=2,
-        max_value=4096,
-    )
-    ap_count = IntegerVar(
-        description="Number of access point to be install on the switch",
-        label='AP Count',
-        required=False,
-        min_value=1,
-        max_value=10,
-    )
-    guest_count = IntegerVar(
-        description="Number of wired guest users that need access on the switch",
-        label='Guest Count',
-        required=False,
-        min_value=1,
-        max_value=10,
-    )
-    uplink_1 = ChoiceVar(
-        choices=CHOICES,
-        description="Uplink Interface drop-down",
-        label='Uplink Interface',
-    )
-    uplink_desc_a = StringVar(
-        description="Uplink Port 1 Interface Description",
-        label='Uplink Interface Description',
-        default='remotehost=os-z07-41ra0043-01-sw-lef-a; port=xe-0/0/18',
-    )
-    uplink_2 = ChoiceVar(
-        choices=CHOICES,
-        description="Uplink Interface drop-down",
-        label='Uplink Interface',
-    )
-    uplink_desc_b = StringVar(
-        description="Uplink Port 2 Interface Description",
-        label='Uplink Interface Description',
-        default='remotehost=os-z07-41ra0043-01-sw-lef-b; port=xe-0/0/18'
-    )
 
-       
