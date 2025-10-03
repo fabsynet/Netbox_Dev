@@ -160,7 +160,6 @@ class DeviceOnboarding(Script):
         label='Lag Interface Description',
         default='remotehost=os-z07-41ra0043-01-sw-lef-a/b; port=ae18'
     )
-    def run(self, data, commit):
-        pass
+
 
        
