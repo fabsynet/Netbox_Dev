@@ -86,3 +86,6 @@ class DeviceOnboarding(Script):
         label='is_stack',
     )
 
+
+    def run(self, data, commit):
+        pass
