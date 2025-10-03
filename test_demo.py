@@ -84,5 +84,4 @@ class DeviceOnboarding(Script):
     )
 
 
-    def run(self, data, commit):
-        pass
+
