@@ -529,7 +529,7 @@ class DeviceOnboardingVersioning(Script):
                 platform=platform,
                 config_template=config_template,
             )
-            switch.custom_field_data["Device_gateway"] = data["gateway_address"]
+            switch.custom_field_data["Device_Gateway"] = data["gateway_address"]
             switch.full_clean()
             switch.save()
             switch.refresh_from_db()
