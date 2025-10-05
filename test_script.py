@@ -504,7 +504,7 @@ class DeviceOnboardingVersioning(Script):
     def run(self, data, commit):
         switch_role = DeviceRole.objects.get(name='Access Switch')
         platform = Platform.objects.get(slug='ios')
-        config_template = ConfigTemplate.objects.get(name='master_temp_acc_v1')
+        config_template = ConfigTemplate.objects.get(name='master_template_v1')
     
         # Determine stack count: 1 if not stack, or user-specified count if stack
         stack_count = data.get("stack_member_count") if data.get("is_stack_switch") else 1
