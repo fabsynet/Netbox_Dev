@@ -133,7 +133,7 @@ class PlayGround(Script):
 		model= InterfaceTemplate,
         query_params= {
                        "device_type_id" : "$switch_model",
-                       "type__icontains": ["TenGigabitEthernet1/1/1"]
+                       "display": ["TenGigabitEthernet1/1/1"]
 		},
         description="Uplink Interface drop-down",
         label='Uplink Interface',
