@@ -250,7 +250,7 @@ class DeviceOnboarding(Script):
         default='remotehost=os-z07-41ra0043-01-sw-lef-a/b; port=ae18'
     )
     def run(self, data, commit):
-
+		self.log_success(data)
         # Create access switches
         switch_role = DeviceRole.objects.get(name='Access Switch')
         platform = Platform.objects.get(slug='ios')
