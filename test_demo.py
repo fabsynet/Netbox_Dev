@@ -133,7 +133,7 @@ class PlayGround(Script):
 		model= InterfaceTemplate,
         query_params= {
                        "device_type_id" : "$switch_model",
-                       "type__icontains": "SFP"
+                       "type__icontains": ["1000base-x-sfp","10gbase-x-sfpp","25gbase-x-sfp28"]
 		},
         description="Uplink Interface drop-down",
         label='Uplink Interface',
