@@ -130,7 +130,7 @@ class PlayGround(Script):
         max_value=10,
     )
     uplink_1 = ObjectVar(
-		model=DeviceType,
+		model=Interface,
         query_params= {'device_type': '$switch_model',
 						'int_type': DeviceType.objects.get(model='$switch_model')
 		},
