@@ -210,7 +210,7 @@ class DeviceOnboarding(Script):
         min_value=1,
         max_value=10,
     )
-   uplink_1 = ObjectVar(
+    uplink_1 = ObjectVar(
 		model= InterfaceTemplate,
         query_params= {
                        "device_type_id" : "$switch_model",
@@ -224,7 +224,7 @@ class DeviceOnboarding(Script):
         label='Uplink Interface Description',
         default='remotehost=os-z07-41ra0043-01-sw-lef-a; port=xe-0/0/18',
     )
-   uplink_2 = ObjectVar(
+    uplink_2 = ObjectVar(
 		model= InterfaceTemplate,
         query_params= {
                        "device_type_id" : "$switch_model",
@@ -477,7 +477,7 @@ class DeviceOnboardingVersioning(Script):
         min_value=1,
         max_value=10,
     )
-   uplink_1 = ObjectVar(
+    uplink_1 = ObjectVar(
 		model= InterfaceTemplate,
         query_params= {
                        "device_type_id" : "$switch_model",
@@ -491,7 +491,7 @@ class DeviceOnboardingVersioning(Script):
         label='Uplink Interface Description',
         default='remotehost=os-z07-41ra0043-01-sw-lef-a; port=xe-0/0/18',
     )
-   uplink_2 = ObjectVar(
+    uplink_2 = ObjectVar(
 		model= InterfaceTemplate,
         query_params= {
                        "device_type_id" : "$switch_model",
