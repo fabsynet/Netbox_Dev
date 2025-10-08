@@ -133,7 +133,9 @@ class PlayGround(Script):
 		model= InterfaceTemplate,
         query_params= {
                        "device_type_id" : "$switch_model",
-                       "type__in": InterfaceTemplate.objects.filter(type__icontains='SFP')
+                       "type__in": {'TenGigabitEthernet1/1/3', 'TwentyFiveGigabitEthernet1/1/1', 'TenGigabitEthernet1/1/2', 
+									'TenGigabitEthernet1/1/1', 'GigabitEthernet1/1/1', 'TenGigabitEthernet1/1/4', 'GigabitEthernet1/1/2', 
+									'TwentyFiveGigabitEthernet1/1/3', 'TwentyFiveGigabitEthernet1/1/2', 'TwentyFiveGigabitEthernet1/1/4'}
 		},
         description="Uplink Interface drop-down",
         label='Uplink Interface',
