@@ -4,7 +4,7 @@ from django.contrib.contenttypes.models import ContentType
 from typing import Tuple
 
 from dcim.choices import DeviceStatusChoices
-from dcim.models import Device, DeviceRole, DeviceType, Site, Platform, Interface, Manufacturer, VirtualChassis
+from dcim.models import Device, DeviceRole, DeviceType, Site, Platform, Interface, Manufacturer, VirtualChassis, InterfaceTemplate
 from ipam.models import IPAddress, VLAN, VLANGroup 
 from extras.models import ConfigTemplate
 
@@ -53,7 +53,7 @@ choices4 = (
     ('GigabitEthernet1/4', 'Gi1/4'),
 )
 
-class PlayGround(Script):
+class DeviceOnboardingPlayGround(Script):
 
     class Meta:
         name = "Device Onboarding Play Ground"
@@ -130,10 +130,10 @@ class PlayGround(Script):
         max_value=10,
     )
     uplink_1 = ObjectVar(
-		model=DeviceType
-        query_params= {'switch_filter': $switch_model,
-						'uplink': DeviceType.objects.get(model=$switch_model).interfacetemplates.filter(type__icontains='SFP')
-		}
+		model=DeviceType,
+        query_params= {'switch_filter': '$switch_model',
+						'uplink': DeviceType.objects.get(model='$switch_model').interfacetemplates.filter(type__icontains='SFP')
+		},
         description="Uplink Interface drop-down",
         label='Uplink Interface',
     )
@@ -165,6 +165,4 @@ class PlayGround(Script):
     )
     def run(self, data, commit):
         pass
-
-
-
+    
