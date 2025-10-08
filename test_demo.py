@@ -129,14 +129,14 @@ class PlayGround(Script):
         min_value=1,
         max_value=10,
     )
-    uplink_1 = ObjectVar(
-		model=DeviceType,
-        query_params= {'switch_filter': '$switch_model',
-						'uplink': DeviceType.objects.get(model='$switch_model').interfacetemplates.filter(type__icontains='SFP')
-		},
-        description="Uplink Interface drop-down",
-        label='Uplink Interface',
-    )
+    # uplink_1 = ObjectVar(
+	# 	model=DeviceType,
+    #     query_params= {'switch_filter': '$switch_model',
+	# 					'uplink': DeviceType.objects.get(model='$switch_model').interfacetemplates.filter(type__icontains='SFP')
+	# 	},
+    #     description="Uplink Interface drop-down",
+    #     label='Uplink Interface',
+    # )
     uplink_desc_a = StringVar(
         description="Uplink Port 1 Interface Description",
         label='Uplink Interface Description',
