@@ -131,9 +131,9 @@ class PlayGround(Script):
     )
     uplink_1 = ObjectVar(
 		model= "InterfaceTemplate",
-        query_params= {
-                       "device_type_id" : "$switch_model"
-		},
+  #       query_params= {
+  #                      "device_type_id" : "$switch_model"
+		# },
         description="Uplink Interface drop-down",
         label='Uplink Interface',
     )
