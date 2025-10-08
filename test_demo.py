@@ -53,7 +53,7 @@ choices4 = (
     ('GigabitEthernet1/4', 'Gi1/4'),
 )
 
-class DeviceOnboardingPlayGround(Script):
+class PlayGround(Script):
 
     class Meta:
         name = "Device Onboarding Play Ground"
