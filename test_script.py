@@ -5,7 +5,7 @@ from django.contrib.contenttypes.models import ContentType
 from typing import Tuple
 
 from dcim.choices import DeviceStatusChoices
-from dcim.models import Device, DeviceRole, DeviceType, Site, Platform, Interface, Manufacturer, VirtualChassis
+from dcim.models import Device, DeviceRole, DeviceType, Site, Platform, Interface, Manufacturer, VirtualChassis, InterfaceTemplate
 from ipam.models import IPAddress, VLAN, VLANGroup 
 from extras.models import ConfigTemplate
 
@@ -210,8 +210,12 @@ class DeviceOnboarding(Script):
         min_value=1,
         max_value=10,
     )
-    uplink_1 = ChoiceVar(
-        choices=CHOICES,
+   uplink_1 = ObjectVar(
+		model= InterfaceTemplate,
+        query_params= {
+                       "device_type_id" : "$switch_model",
+                       "type": ["10gbase-x-sfpp","1000base-x-sfp","25gbase-x-sfp28"]
+		},
         description="Uplink Interface drop-down",
         label='Uplink Interface',
     )
@@ -220,8 +224,12 @@ class DeviceOnboarding(Script):
         label='Uplink Interface Description',
         default='remotehost=os-z07-41ra0043-01-sw-lef-a; port=xe-0/0/18',
     )
-    uplink_2 = ChoiceVar(
-        choices=CHOICES,
+   uplink_2 = ObjectVar(
+		model= InterfaceTemplate,
+        query_params= {
+                       "device_type_id" : "$switch_model",
+                       "type": ["10gbase-x-sfpp","1000base-x-sfp","25gbase-x-sfp28"]
+		},
         description="Uplink Interface drop-down",
         label='Uplink Interface',
     )
@@ -469,8 +477,12 @@ class DeviceOnboardingVersioning(Script):
         min_value=1,
         max_value=10,
     )
-    uplink_1 = ChoiceVar(
-        choices=CHOICES,
+   uplink_1 = ObjectVar(
+		model= InterfaceTemplate,
+        query_params= {
+                       "device_type_id" : "$switch_model",
+                       "type": ["10gbase-x-sfpp","1000base-x-sfp","25gbase-x-sfp28"]
+		},
         description="Uplink Interface drop-down",
         label='Uplink Interface',
     )
@@ -479,8 +491,12 @@ class DeviceOnboardingVersioning(Script):
         label='Uplink Interface Description',
         default='remotehost=os-z07-41ra0043-01-sw-lef-a; port=xe-0/0/18',
     )
-    uplink_2 = ChoiceVar(
-        choices=CHOICES,
+   uplink_2 = ObjectVar(
+		model= InterfaceTemplate,
+        query_params= {
+                       "device_type_id" : "$switch_model",
+                       "type": ["10gbase-x-sfpp","1000base-x-sfp","25gbase-x-sfp28"]
+		},
         description="Uplink Interface drop-down",
         label='Uplink Interface',
     )
