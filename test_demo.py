@@ -4,8 +4,8 @@ from django.contrib.contenttypes.models import ContentType
 from typing import Tuple
 
 from dcim.choices import DeviceStatusChoices
-from dcim.models import Device, DeviceRole, DeviceType, Site, Platform, Interface, Manufacturer, VirtualChassis, InterfaceTemplate
-from ipam.models import IPAddress, VLAN, VLANGroup
+from dcim.models import Device, DeviceRole, DeviceType, Site, Platform, Interface, Manufacturer, VirtualChassis
+from ipam.models import IPAddress, VLAN, VLANGroup 
 from extras.models import ConfigTemplate
 
 CHOICES = (
@@ -132,7 +132,8 @@ class PlayGround(Script):
     uplink_1 = ObjectVar(
 		model= InterfaceTemplate,
         query_params= {
-                       "device_type_id" : "$switch_model"
+                       "device_type_id" : "$switch_model",
+                       "type__in": "1000base-x-sfp,10gbase-x-sfpp,25gbase-x-sfp28,50gbase-x-sfp56"
 		},
         description="Uplink Interface drop-down",
         label='Uplink Interface',
