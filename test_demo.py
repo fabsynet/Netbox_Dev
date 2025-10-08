@@ -4,7 +4,7 @@ from django.contrib.contenttypes.models import ContentType
 from typing import Tuple
 
 from dcim.choices import DeviceStatusChoices
-from dcim.models import Device, DeviceRole, DeviceType, Site, Platform, Interface, Manufacturer, VirtualChassis, InterfaceTemplate
+from dcim.models import Device, DeviceRole, DeviceType, Site, Platform, Interface, Manufacturer, VirtualChassis
 from ipam.models import IPAddress, VLAN, VLANGroup 
 from extras.models import ConfigTemplate
 
@@ -133,7 +133,7 @@ class PlayGround(Script):
 		model= InterfaceTemplate,
         query_params= {
                        "device_type_id" : "$switch_model",
-                       "type__in": "1000base-x-sfp,10gbase-x-sfpp,25gbase-x-sfp28,50gbase-x-sfp56"
+                       "type__in": InterfaceTemplate.objects.filter(type__icontains='SFP')
 		},
         description="Uplink Interface drop-down",
         label='Uplink Interface',
