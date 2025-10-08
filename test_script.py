@@ -1,4 +1,5 @@
 
+
 from extras.scripts import *
 from django.utils.text import slugify
 from django.contrib.contenttypes.models import ContentType
@@ -250,7 +251,7 @@ class DeviceOnboarding(Script):
         default='remotehost=os-z07-41ra0043-01-sw-lef-a/b; port=ae18'
     )
     def run(self, data, commit):
-		self.log_success(data)
+        self.log_success(data)
         # Create access switches
         switch_role = DeviceRole.objects.get(name='Access Switch')
         platform = Platform.objects.get(slug='ios')
@@ -752,3 +753,4 @@ class DeviceOnboardingVersioning(Script):
         else:
             self.log_success(f"Update uplink 2: {uplink2_int} tagged={list(uplink2_int.tagged_vlans.values_list('vid', flat=True))}")
             
+
