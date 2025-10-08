@@ -130,8 +130,9 @@ class PlayGround(Script):
         max_value=10,
     )
     uplink_1 = ObjectVar(
-		model=Interface,
-        query_params= {'device_type': '$switch_model'
+		model=DeviceType,
+        query_params= {'device_type': '$switch_model',
+                    #    'int_up': DeviceType.objects.get(model='Catalyst 9300L-24UXG-4X').interfacetemplates.filter(type__icontains='SFP')
 		},
         description="Uplink Interface drop-down",
         label='Uplink Interface',
