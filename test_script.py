@@ -14,24 +14,21 @@ def to_one_ended(new_int: str) -> str:
     return new_int[:-1] + "1"
 
 
-def replace_slot(interface: str, new_slot: int) -> str:
+def replace_slot(int_name: str | InterfaceTemplate , new_slot: int):
+    """Replace the slot number in an interface name with a new slot number.
+    Args:
+        int_name (str | InterfaceTemplate): The original interface name or template.
+        new_slot (int): The new slot number to replace the old one.
+    Returns:
+        str: The modified interface name with the new slot number.
     """
-    Replace the first number after the interface type with the given integer.
-    Example: "GigabitEthernet1/0/1", 2 -> "GigabitEthernet2/0/1"
-    """
-    # Find where the digits start
-    i = 0
-    while i < len(interface) and not interface[i].isdigit():
-        i += 1
-    if i == len(interface):
-        raise ValueError("No numeric part found in the interface string.")
-
-    # Find the end of the first numeric segment
-    j = i
-    while j < len(interface) and interface[j].isdigit():
-        j += 1
-
-    return interface[:i] + str(new_slot) + interface[j:]
+    if isinstance(int_name, InterfaceTemplate):
+        int_name = int_name.name
+    int_name_list = int_name.split('/')
+    new_int = int_name_list[0][:-1]
+    module_num = str(new_slot)
+    int_name_list[0] = new_int + module_num
+    return '/'.join(int_name_list)
 
 def per_switch_with_adding(ap_count: int, num_switches: int) -> Tuple[int,int,int]:
     if num_switches < 1:
