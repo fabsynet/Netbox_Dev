@@ -892,8 +892,8 @@ access-list 6 deny   any
 ntp access-group peer 5
 ntp access-group server 6
 {%- for obj in serv %}
-{%- set ntp_ip = obj.ipaddresses.all()[0] %}
-ntp server {{ntp_ip|string}}
+{%- set ntp_ip = obj.ipaddresses.all()[0] | string %}
+ntp server {{ntp_ip.split('/')[0]}}
 {%- endfor %}
 ntp source Vlan{{ mgmt_vid}}
 ntp authentication-key 5 md5 11281Dffffff 7
