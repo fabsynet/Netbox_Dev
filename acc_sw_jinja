@@ -5,6 +5,7 @@
 {%- set mgmt_net = device.interfaces.get(type='virtual').ip_addresses.get().address -%}
 {%- set mgmt_ip = mgmt_net.ip -%}
 {%- set mgmt_netmask = mgmt_net.netmask -%}
+{%- set serv = Service.objects.filter(name__icontains='NTP') -%}
 !
 no service pad
 no platform punt-keepalive disable-kernel-core
@@ -890,9 +891,10 @@ access-list 6 deny   any
 !
 ntp access-group peer 5
 ntp access-group serve 6
-ntp server 10.8.60.44
-ntp server 10.22.131.253
-ntp server 10.8.60.47
+{%- for obj in serv %}
+{%- set ntp_ip = obj.ipaddresses.all()[0] %}
+ntp server {{ntp_ip|string}}
+{%- endfor %}
 ntp source Vlan{{ mgmt_vid}}
 ntp authentication-key 5 md5 11281Dffffff 7
 ntp authenticate
