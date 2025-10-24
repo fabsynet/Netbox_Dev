@@ -890,7 +890,7 @@ access-list 5 permit 10.22.131.253
 access-list 6 deny   any
 !
 ntp access-group peer 5
-ntp access-group serve 6
+ntp access-group server 6
 {%- for obj in serv %}
 {%- set ntp_ip = obj.ipaddresses.all()[0] %}
 ntp server {{ntp_ip|string}}
