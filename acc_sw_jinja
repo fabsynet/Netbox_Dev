@@ -5,7 +5,7 @@
 {%- set mgmt_net = device.interfaces.get(type='virtual').ip_addresses.get().address -%}
 {%- set mgmt_ip = mgmt_net.ip -%}
 {%- set mgmt_netmask = mgmt_net.netmask -%}
-{%- set serv = ipam.Service.objects.filter(name__icontains='NTP') -%}
+{%- set serv = ipam.Service.objects.filter(name ='NTP') -%}
 !
 no service pad
 no platform punt-keepalive disable-kernel-core
